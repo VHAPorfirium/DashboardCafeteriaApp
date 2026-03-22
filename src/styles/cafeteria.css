@@ -1,0 +1,338 @@
+/* ============================================================
+   Cafeteria App — Estilos customizados
+   Bootstrap via CDN cuida da estrutura base;
+   este arquivo cuida de identidade visual e ajustes finos.
+   ============================================================ */
+
+/* --- Variáveis de cor (paleta cafeteria) ------------------- */
+:root {
+  --cafe-escuro: #2c1a0e;
+  --cafe-medio: #5c3317;
+  --cafe-claro: #a0522d;
+  --cafe-creme: #f5efe6;
+  --cafe-bege: #e8d5b7;
+  --cafe-dourado: #c8960c;
+  --cafe-verde: #4a7c59;
+  --cafe-vermelho: #c0392b;
+  --sombra-suave: 0 2px 12px rgba(44, 26, 14, 0.12);
+  --sombra-hover: 0 6px 20px rgba(44, 26, 14, 0.2);
+  --radius: 12px;
+}
+
+/* --- Reset e base --------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--cafe-creme);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: var(--cafe-escuro);
+  min-height: 100vh;
+}
+
+/* --- Header -------------------------------------------- */
+.header-cafeteria {
+  background: linear-gradient(135deg, var(--cafe-escuro) 0%, var(--cafe-medio) 100%);
+  color: var(--cafe-creme);
+  padding: 1rem 0;
+  box-shadow: 0 4px 16px rgba(44, 26, 14, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-cafeteria h1 {
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  margin: 0;
+  font-weight: 700;
+}
+
+.header-cafeteria p {
+  font-size: 0.85rem;
+  color: var(--cafe-bege);
+  margin: 0;
+  font-style: italic;
+}
+
+/* --- Sidebar do pedido --------------------------------- */
+.sidebar-pedido {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--sombra-suave);
+  border-top: 4px solid var(--cafe-medio);
+  position: sticky;
+  top: 90px;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+}
+
+.sidebar-pedido::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar-pedido::-webkit-scrollbar-thumb {
+  background: var(--cafe-bege);
+  border-radius: 10px;
+}
+
+.sidebar-titulo {
+  background: linear-gradient(90deg, var(--cafe-escuro), var(--cafe-medio));
+  color: var(--cafe-creme);
+  padding: 1rem 1.25rem;
+  border-radius: calc(var(--radius) - 4px) calc(var(--radius) - 4px) 0 0;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* --- Cards do cardápio --------------------------------- */
+.card-item-cardapio {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--sombra-suave);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+  overflow: hidden;
+  height: 100%;
+}
+
+.card-item-cardapio:hover:not(.card-indisponivel) {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-hover);
+  border-color: var(--cafe-claro);
+}
+
+.card-item-cardapio.card-selecionado {
+  border-color: var(--cafe-verde);
+  background: #f0faf3;
+}
+
+.card-item-cardapio.card-indisponivel {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: #f8f8f8;
+}
+
+.card-emoji {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.card-nome {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--cafe-escuro);
+  margin: 0.4rem 0 0.2rem;
+}
+
+.card-descricao {
+  font-size: 0.82rem;
+  color: #666;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.card-preco {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--cafe-claro);
+}
+
+.card-footer-item {
+  background: transparent;
+  border-top: 1px solid var(--cafe-bege);
+  padding: 0.6rem 1rem;
+}
+
+/* --- Badge de status ----------------------------------- */
+.badge-selecionado {
+  background-color: var(--cafe-verde);
+  color: #fff;
+  font-size: 0.72rem;
+  padding: 0.25em 0.6em;
+  border-radius: 20px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.badge-disponivel {
+  background-color: var(--cafe-bege);
+  color: var(--cafe-medio);
+  font-size: 0.72rem;
+  padding: 0.25em 0.6em;
+  border-radius: 20px;
+}
+
+.badge-indisponivel {
+  background-color: #e0e0e0;
+  color: #999;
+  font-size: 0.72rem;
+  padding: 0.25em 0.6em;
+  border-radius: 20px;
+}
+
+/* --- Dashboard contadores ------------------------------ */
+.card-contador {
+  border-radius: var(--radius);
+  box-shadow: var(--sombra-suave);
+  transition: transform 0.15s ease;
+  border: none;
+  overflow: hidden;
+}
+
+.card-contador:hover {
+  transform: translateY(-2px);
+}
+
+.contador-valor {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.contador-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* --- Filtro de categorias ------------------------------ */
+.filtro-categoria-btn {
+  border-radius: 20px !important;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 2px solid var(--cafe-bege) !important;
+  color: var(--cafe-medio) !important;
+  background: #fff !important;
+  padding: 0.35rem 1rem !important;
+  transition: all 0.2s ease;
+}
+
+.filtro-categoria-btn:hover {
+  border-color: var(--cafe-claro) !important;
+  color: var(--cafe-claro) !important;
+}
+
+.filtro-categoria-btn.ativo {
+  background: var(--cafe-medio) !important;
+  border-color: var(--cafe-medio) !important;
+  color: #fff !important;
+}
+
+/* --- Itens na sidebar do pedido ------------------------ */
+.item-pedido-linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 1.25rem;
+  border-bottom: 1px solid var(--cafe-bege);
+  font-size: 0.88rem;
+}
+
+.item-pedido-linha:last-child {
+  border-bottom: none;
+}
+
+.item-pedido-emoji {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+.item-pedido-nome {
+  flex: 1;
+  color: var(--cafe-escuro);
+  font-weight: 600;
+}
+
+.item-pedido-preco {
+  color: var(--cafe-claro);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.pedido-vazio {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #aaa;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.total-pedido {
+  background: linear-gradient(90deg, var(--cafe-escuro), var(--cafe-medio));
+  color: var(--cafe-creme);
+  padding: 0.9rem 1.25rem;
+  border-radius: 0 0 calc(var(--radius) - 4px) calc(var(--radius) - 4px);
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Botão limpar pedido ------------------------------- */
+.btn-limpar-pedido {
+  background: transparent !important;
+  color: var(--cafe-vermelho) !important;
+  border: 1px solid var(--cafe-vermelho) !important;
+  font-size: 0.78rem !important;
+  padding: 0.25rem 0.75rem !important;
+  border-radius: 20px !important;
+  transition: all 0.2s;
+}
+
+.btn-limpar-pedido:hover {
+  background: var(--cafe-vermelho) !important;
+  color: #fff !important;
+}
+
+/* --- Seção título do cardápio -------------------------- */
+.secao-titulo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--cafe-medio);
+  border-bottom: 2px solid var(--cafe-bege);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* --- Footer -------------------------------------------- */
+.footer-cafeteria {
+  background: var(--cafe-escuro);
+  color: var(--cafe-bege);
+  padding: 1.25rem 0;
+  font-size: 0.82rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.footer-cafeteria address {
+  font-style: normal;
+  opacity: 0.9;
+  line-height: 1.8;
+}
+
+/* --- Responsividade extra ------------------------------ */
+@media (max-width: 768px) {
+  .sidebar-pedido {
+    position: static;
+    max-height: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .header-cafeteria h1 {
+    font-size: 1.3rem;
+  }
+
+  .card-emoji {
+    font-size: 2rem;
+  }
+
+  .contador-valor {
+    font-size: 1.4rem;
+  }
+}
